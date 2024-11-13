@@ -14,7 +14,7 @@ pipeline {
             steps {
                 echo 'Pulling from Git...'
                 git branch: 'AchrefChaabani-5SIM4-G2',
-                    url: 'https://github.com/Anas-REBAI/5SIM4_G2_Projet.git'
+                    url: 'https://github.com/achref212/5SIM4_G2_Projet_Gestion_Station_Ski.git'
             }
         }
 
