@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  mysqldb:
+    image: mysql:5.7
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: StationSki
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3306:3306
+    volumes:
+      - db:/var/lib/mysql
+
+  app-timesheet:
+    depends_on:
+      - mysqldb
+    image: chaabaniachref/gestion-station-ski:1.0
+    restart: on-failure
+    ports:
+      - 8082:8082
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/StationSki?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_SERVLET_CONTEXT_PATH: /api
+      SERVER_PORT: 8082
+      SPRING_MVC_FORMAT_DATE: yyyy-MM-dd
+      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.MySQL5InnoDBDialect
+    stdin_open: true
+    tty: true
+
+volumes:
+  db:
