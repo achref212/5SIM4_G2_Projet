@@ -64,6 +64,7 @@
 			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
+	<!-- Other dependencies -->
 
 	<!-- Deploy to Nexus -->
 	<distributionManagement>
