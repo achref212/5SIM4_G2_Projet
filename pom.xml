@@ -65,6 +65,7 @@
 		</dependency>
 	</dependencies>
 	<!-- Other dependencies -->
+	<!-- Other dependencies -->
 
 	<!-- Deploy to Nexus -->
 	<distributionManagement>
