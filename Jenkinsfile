@@ -186,7 +186,7 @@ pipeline {
         failure {
             emailext(
                 to: 'achref.chaabani@esprit.tn',
-                subject: "Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' Failed",
+                subject: "Jobs '${env.JOB_NAME} [${env.BUILD_NUMBER}]' Failed",
                 body: """
                     <html>
                     <body style="background-color: #f8d7da; font-family: Arial, sans-serif; padding: 20px;">
