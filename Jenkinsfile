@@ -24,7 +24,20 @@ pipeline {
                 }
             }
         }
-
+        stage("Testing (JUnit & Mockito)") {
+            steps {
+                script {
+                    try {
+                        echo "======== Running Unit Tests with Maven ========"
+                        sh "mvn clean test"
+                        currentBuild.description += "Testing: ✅\n"
+                    } catch (Exception e) {
+                        currentBuild.description += "Testing: ❌\n"
+                        throw e
+                    }
+                }
+            }
+        }
         stage('SONARQUBE') {
             steps {
                 script {
