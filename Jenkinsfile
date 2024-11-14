@@ -5,7 +5,6 @@ pipeline {
         SONARQUBE_ENV = 'SonarQube'
         SONAR_TOKEN = credentials('SonarToken')
         DOCKER_CREDENTIALS_ID = 'DOCKER'
-
     }
 
     stages {
@@ -74,7 +73,6 @@ pipeline {
                     sh 'docker build -t chaabaniachref/gestion-station-ski:1.0 .'
                 }
             }
-
         }
          stage('Verify Image') {
              steps {
