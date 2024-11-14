@@ -21,11 +21,8 @@ pipeline {
         stage('COMPILING') {
             steps {
                 script {
-                    // Clean and install dependencies
                     sh 'mvn clean install'
-                    // Uncomment these lines if you want to run tests and package the application
-                    // sh 'mvn test'
-                    // sh 'mvn package'
+                 
                 }
             }
         }
